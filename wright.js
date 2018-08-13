@@ -1,34 +1,37 @@
+const path = require("path");
+
 const wright = require("wright");
-const rollup = require("rollup");
 
-const rollupConfig = require("./rollup.config.js");
+// const rollup = require("rollup");
 
-const compile = async () => {
-    const bundle = await rollup.rollup(rollupConfig);
+// const rollupConfig = require("./rollup.config.js");
 
-    console.log(bundle);
+// const compile = async () => {
+//     const bundle = await rollup.rollup(rollupConfig);
+
+//     console.log(bundle);
     
-    const { code } = await bundle.generate(rollupConfig.output);
+//     const { code } = await bundle.generate(rollupConfig.output);
     
-    return code;
-};
+//     return code;
+// };
 
 wright({
-    debug: true,
+    debug : true,
 
-    serve : "/dist",
-    run: "console.log",
+    serve : path.resolve("./dist"),
+    run   : "console.log",
 
     execute : "npx rollup --config --watch",
 
-    js: {
+    js : {
         watch: "src/**/*.js",
+        path : "./bundle.js",
         // compile,
-        path : "./dist/bundle.js",
     },
-    css: {
+    css : {
         watch: "src/**/*.css",
+        path : "./bundle.css",
         // compile,
-        path : "./dist/bundle.css",
     },
 })
