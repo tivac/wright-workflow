@@ -1,0 +1,1 @@
+{"version":3,"sources":["../src/app.css"],"names":[],"mappings":"AAAA,iBAAC;AAAD;IACI,WAAW;IACX,2BAA2B;CAC9B","file":"bundle.css","sourcesContent":[".title {\r\n    color: red;\r\n    text-decoration: underline;\r\n}\r\n"]}
